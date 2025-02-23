@@ -9,7 +9,7 @@ local MathCeil = math.ceil
 local EVENT = {}
 
 EVENT.Title = "Jingle Jam 2024"
-EVENT.Description = "You've joined a jam band! Each player was assigned a random instrument"
+EVENT.Description = "You've joined a jam band! Each player was assigned a random instrument\nShoot to play, aim up and down to change notes"
 EVENT.id = "jinglejam2024"
 EVENT.Type = EVENT_TYPE_GUNSOUNDS
 EVENT.Categories = {"fun", "smallimpact"}
