@@ -53,7 +53,7 @@ local function GetWeaponSound(ply, pitch)
     if #instrument == 0 then return end
 
     local index = MathCeil(pitch / 15)
-    return soundsFolder[instrument] ..  "/" .. sounds[instrument][index]
+    return EVENT.id .. "/" .. soundsFolder[instrument] ..  "/" .. sounds[instrument][index]
 end
 
 local function ShouldIgnoreSound(soundName)
