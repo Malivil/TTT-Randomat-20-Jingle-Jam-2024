@@ -53,7 +53,6 @@ local ignorePaths = {
     ".*weapons/.*empty.*%..*", ".*weapons/.*zoom.*%..*"
 }
 
-
 local function GetWeaponSound(ply, pitch)
     local instrument = ply:GetNWString("RdmtJingleJam2024Instrument", "")
     if #instrument == 0 then return end
