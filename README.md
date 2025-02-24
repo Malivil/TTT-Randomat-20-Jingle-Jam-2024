@@ -3,6 +3,19 @@ A pack of [Randomat 2.0](https://github.com/Malivil/TTT-Randomat-20) events crea
 
 # Events
 
+## Farfetched
+_Suggested By_: Corvatile\
+The Magneto-stick has unlimited range and can lift much heavier objects than usual.
+\
+\
+**ConVars**
+\
+_ttt_randomat_farfetched_ - Default: 1 - Whether this event is enabled.\
+_ttt_randomat_farfetched_min_players_ - Default: 0 - The minimum number of players required for this event to start.\
+_ttt_randomat_farfetched_weight_ - Default: -1 - The weight this event should use during the randomized event selection process.\
+_randomat_farfetched_forcemult_ - Default: 2.5 - The multiplier to use on the magneto-stick's lift force.\
+_randomat_farfetched_rangemult_ - Default: 2.5 - The multiplier to use on the magneto-stick's range.
+
 ## Jingle Jam 2024
 _Contributed By_: Malivil\
 Assigns a random instrument (Electric Guitar, Bass Guitar, Acoustic Guitar, Drums, or Piano) to each player.\
