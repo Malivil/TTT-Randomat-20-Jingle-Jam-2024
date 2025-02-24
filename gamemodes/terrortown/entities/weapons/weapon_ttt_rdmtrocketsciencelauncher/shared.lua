@@ -26,7 +26,7 @@ SWEP.ViewModelFOV = 55
 SWEP.ViewModel = Model("models/weapons/v_rpg.mdl")
 SWEP.WorldModel = Model("models/weapons/w_rocket_launcher.mdl")
 
-SWEP.Kind = WEAPON_NADE + WEAPON_HEAVY + WEAPON_EQUIP1 + WEAPON_EQUIP2
+SWEP.Kind = WEAPON_EQUIP1
 SWEP.AutoSpawnable = false
 SWEP.AmmoEnt = "none"
 SWEP.AllowDrop = false
