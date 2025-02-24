@@ -4,7 +4,7 @@ EVENT.Title = "Rocket Science"
 EVENT.Description = "Everyone gets a Rocket Launcher with boosted Rocket Jump capabilities"
 EVENT.id = "rocketscience"
 EVENT.Type = EVENT_TYPE_WEAPON_OVERRIDE
-EVENT.Categories = {"fun", "moderateimpact"}
+EVENT.Categories = {"fun", "moderateimpact", "item", "rolechange"}
 
 CreateConVar("randomat_rocketscience_damage", 50, FCVAR_ARCHIVE, "The amount of damage the rocket launcher should do to other players", 1, 150)
 CreateConVar("randomat_rocketscience_selfdamage", 25, FCVAR_ARCHIVE, "The amount of damage the rocket launcher should do to the owner", 1, 100)
