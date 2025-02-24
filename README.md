@@ -28,17 +28,6 @@ _ttt_randomat_jinglejam2024_ - Default: 1 - Whether this event is enabled.\
 _ttt_randomat_jinglejam2024_min_players_ - Default: 0 - The minimum number of players required for this event to start.\
 _ttt_randomat_jinglejam2024_weight_ - Default: -1 - The weight this event should use during the randomized event selection process.
 
-## Nothing Left to Fuse
-_Suggested By_: Corvatile\
-When a player dies, any grenades they have activate automatically.
-\
-\
-**ConVars**
-\
-_ttt_randomat_nothinglefttofuse_ - Default: 1 - Whether this event is enabled.\
-_ttt_randomat_nothinglefttofuse_min_players_ - Default: 0 - The minimum number of players required for this event to start.\
-_ttt_randomat_nothinglefttofuse_weight_ - Default: -1 - The weight this event should use during the randomized event selection process.
-
 ## Rocket Science
 _Suggested By_: Logan\
 Everyone gets a Rocket Launcher with boosted Rocket Jump capabilities.
