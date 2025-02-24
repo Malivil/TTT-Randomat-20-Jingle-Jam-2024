@@ -28,6 +28,17 @@ _ttt_randomat_jinglejam2024_ - Default: 1 - Whether this event is enabled.\
 _ttt_randomat_jinglejam2024_min_players_ - Default: 0 - The minimum number of players required for this event to start.\
 _ttt_randomat_jinglejam2024_weight_ - Default: -1 - The weight this event should use during the randomized event selection process.
 
+## Places, Everyone
+_Suggested By_: Corvatile\
+Every time a player dies, everyone is teleported to different random spawn locations
+\
+\
+**ConVars**
+\
+_ttt_randomat_placeseveryone_ - Default: 1 - Whether this event is enabled.\
+_ttt_randomat_placeseveryone_min_players_ - Default: 0 - The minimum number of players required for this event to start.\
+_ttt_randomat_placeseveryone_weight_ - Default: -1 - The weight this event should use during the randomized event selection process.
+
 ## Rocket Science
 _Suggested By_: Logan\
 Everyone gets a Rocket Launcher with boosted Rocket Jump capabilities.
