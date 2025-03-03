@@ -10,14 +10,14 @@ CreateConVar("randomat_paranoidyogscast_timer_min", 15, FCVAR_ARCHIVE, "The mini
 CreateConVar("randomat_paranoidyogscast_timer_max", 30, FCVAR_ARCHIVE, "The maximum time before the sound should play", 1, 120)
 CreateConVar("randomat_paranoidyogscast_volume", 125, FCVAR_ARCHIVE, "The volume the sound should play at", 75, 180)
 
-local BEN = ""
-local DUNCAN = ""
-local LEWIS = ""
-local NILESY = ""
-local PEDGUIN = ""
-local RAVS = ""
-local RYTHIAN = ""
-local ZYLUS = ""
+local BEN = "76561198005702755"
+local DUNCAN = "76561197989857092"
+local LEWIS = "76561197971116232"
+local NILESY = "76561197987050685"
+local PEDGUIN = "76561198035540223"
+local RAVS = "76561197984355580"
+local RYTHIAN = "76561197990096791"
+local ZYLUS = "76561197964820404"
 
 local clips = {
     {
