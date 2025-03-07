@@ -106,12 +106,15 @@ function EVENT:Initialize()
     -- If the base Randomat is installed with the blerg sounds then we can include those too
     if file.IsDir("sound/blerg", "THIRDPARTY") then
         local blergs, _ = file.Find("sound/blerg/*.mp3", "THIRDPARTY")
+        local blerg_files = {}
         for _, blerg in ipairs(blergs) do
-            table.insert(clips, {
-                path = "blerg/" .. blerg,
-                players = { BEN }
-            })
+            table.insert(blerg_files, "blerg/" .. blerg)
         end
+
+        table.insert(clips, {
+            path = blerg_files,
+            players = { BEN }
+        })
     end
 end
 
@@ -132,6 +135,11 @@ function EVENT:StartTimer()
 
         local idx = math.random(#available)
         local chosen_sound = available[idx]
+
+        -- If this clip has multiple options, use a random one
+        if type(chosen_sound) == "table" then
+            chosen_sound = chosen_sound[math.random(#chosen_sound)]
+        end
 
         sound.Play(chosen_sound, target_pos, volume, 100, 1)
 
@@ -158,7 +166,14 @@ function EVENT:Begin()
 
         if not valid then continue end
 
-        util.PrecacheSound(clip.path)
+        -- If this is a list of sounds, cache each one
+        if type(clip.path) == "table" then
+            for _, c in ipairs(clip.path) do
+                util.PrecacheSound(c)
+            end
+        else
+            util.PrecacheSound(clip.path)
+        end
         table.insert(available, clip.path)
     end
 
