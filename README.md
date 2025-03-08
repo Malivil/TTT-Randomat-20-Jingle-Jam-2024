@@ -28,20 +28,6 @@ _ttt_randomat_jinglejam2024_ - Default: 1 - Whether this event is enabled.\
 _ttt_randomat_jinglejam2024_min_players_ - Default: 0 - The minimum number of players required for this event to start.\
 _ttt_randomat_jinglejam2024_weight_ - Default: -1 - The weight this event should use during the randomized event selection process.
 
-## Paranoid Yogscast
-_Suggested By_: LGCydel\
-Periodically plays audio clips from Yogscast members implicating others in nefarious behaviors.
-\
-\
-**ConVars**
-\
-_ttt_randomat_paranoidyogscast_ - Default: 1 - Whether this event is enabled.\
-_ttt_randomat_paranoidyogscast_min_players_ - Default: 0 - The minimum number of players required for this event to start.\
-_ttt_randomat_paranoidyogscast_weight_ - Default: -1 - The weight this event should use during the randomized event selection process.\
-_randomat_paranoidyogscast_timer_min_ - Default: 15 - The minimum time before the sound should play.\
-_randomat_paranoidyogscast_timer_max_ - Default: 30 - The maximum time before the sound should play.\
-_randomat_paranoidyogscast_volume_ - Default: 125 - The volume the sound should play at.
-
 ## Places, Everyone
 _Suggested By_: Corvatile\
 Every time a player dies, everyone is teleported to different random spawn locations
@@ -88,5 +74,3 @@ _randomat_totempole_damage_mult_ - Default: 1.5 - The multiplier for damage the 
 - [SampleFocus.com](https://samplefocus.com) for the Acoustic and Base Guitar sounds used in the "Jingle Jam 2024" event
   - "Guitar" and "Bass Guitar" by [SimonProTV250](https://samplefocus.com/users/simonprotv250)
   - "Nylon Guitar" by [Buena Morena](https://samplefocus.com/users/buena-morena)
-- /u/AddictedToRambling, /u/Flynnhammer, /u/SoftlyGyrating, and /u/TemporaryAnswerer on Reddit for suggestions on which videos to pull clips from for the "Paranoid Yogscast" event
-- Drakon Astron for their "Yogscast TTT - Entertaining Moments" and "Yogscast TTT - Pro Plays" videos that were used for clips for the "Paranoid Yogscast" event
