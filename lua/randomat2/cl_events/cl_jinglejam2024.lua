@@ -11,25 +11,25 @@ EVENT.id = "jinglejam2024"
 
 -- Instruments toward the start of this list will be used more often than the ones at the end
 local sounds = {
-    Guitar = {
-        "GuitarC.mp3", "GuitarD.mp3", "GuitarE.mp3", "GuitarF.mp3", "GuitarG.mp3", "GuitarA.mp3",
-        "GuitarHeavyELow.mp3", "GuitarHeavyA.mp3", "GuitarHeavyG.mp3", "GuitarHeavyEHigh.mp3", "GuitarHeavyPluck.mp3", "GuitarHeavyPluck2.mp3"
+    guitar = {
+        "guitarc.mp3", "guitard.mp3", "guitare.mp3", "guitarf.mp3", "guitarg.mp3", "guitara.mp3",
+        "guitarheavyelow.mp3", "guitarheavya.mp3", "guitarheavyg.mp3", "guitarheavyehigh.mp3", "guitarheavypluck.mp3", "guitarheavypluck2.mp3"
     },
-    ["Bass Guitar"] = {
-        "BassC.mp3", "BassD.mp3", "BassE.mp3", "BassF.mp3", "BassG.mp3", "BassA.mp3",
-        "ElectricBassC.mp3", "ElectricBassD.mp3", "ElectricBassE.mp3", "ElectricBassF.mp3", "ElectricBassG.mp3", "ElectricBassB.mp3"
+    ["bass guitar"] = {
+        "bassc.mp3", "bassd.mp3", "basse.mp3", "bassf.mp3", "bassg.mp3", "bassa.mp3",
+        "electricbassc.mp3", "electricbassd.mp3", "electricbasse.mp3", "electricbassf.mp3", "electricbassg.mp3", "electricbassb.mp3"
     },
-    Drums = {
-        "Kick.mp3", "Kick2.mp3", "ConcertTom.mp3", "FloorTom.mp3", "Tom.mp3", "Snare.mp3",
-        "Snare2.mp3", "HiHat.mp3", "CymbalCrash.mp3", "CymbalShort.mp3", "CymbalMedium.mp3", "CymbalLong.mp3"
+    drums = {
+        "kick.mp3", "kick2.mp3", "concerttom.mp3", "floortom.mp3", "tom.mp3", "snare.mp3",
+        "snare2.mp3", "hihat.mp3", "cymbalcrash.mp3", "cymbalshort.mp3", "cymbalmedium.mp3", "cymballong.mp3"
     },
-    ["Acoustic Guitar"] = {
-        "AcousticC.mp3", "AcousticD.mp3", "AcousticE.mp3", "AcousticF.mp3", "AcousticG.mp3", "AcousticA.mp3",
-        "NylonBMinor.mp3", "NylonDflatMinor.mp3", "NylonEMajor.mp3", "NylonFsharpMaj9.mp3", "NylonFsharpMinor.mp3", "NylonAflatMajor.mp3"
+    ["acoustic guitar"] = {
+        "acousticc.mp3", "acousticd.mp3", "acoustice.mp3", "acousticf.mp3", "acousticg.mp3", "acoustica.mp3",
+        "nylonbminor.mp3", "nylondflatminor.mp3", "nylonemajor.mp3", "nylonfsharpmaj9.mp3", "nylonfsharpminor.mp3", "nylonaflatmajor.mp3"
     },
-    Piano = {
-        "PianoA.mp3", "PianoGSharp.mp3", "PianoBFlat.mp3", "PianoB.mp3", "PianoC.mp3", "PianoCSharp.mp3",
-        "PianoD.mp3", "PianoEFlat.mp3", "PianoE.mp3", "PianoF.mp3", "PianoFSharp.mp3", "PianoG.mp3"
+    piano = {
+        "pianoa.mp3", "pianogsharp.mp3", "pianobflat.mp3", "pianob.mp3", "pianoc.mp3", "pianocsharp.mp3",
+        "pianod.mp3", "pianoeflat.mp3", "pianoe.mp3", "pianof.mp3", "pianofsharp.mp3", "pianog.mp3"
     }
 }
 local soundsFolder = {}
