@@ -16,6 +16,18 @@ _ttt_randomat_farfetched_weight_ - Default: -1 - The weight this event should us
 _randomat_farfetched_forcemult_ - Default: 2.5 - The multiplier to use on the magneto-stick's lift force.\
 _randomat_farfetched_rangemult_ - Default: 2.5 - The multiplier to use on the magneto-stick's range.
 
+## Free Spirits
+_Suggested By_: Nick\
+Dead players become empowered spirits capable of talking with the living and using abilities.\
+_Requires the [Jingle Jam 2023 Roles Pack](https://steamcommunity.com/sharedfiles/filedetails/?id=3205649099) with **ttt_ghostwhisperer_max_abilities** enabled to run._
+\
+\
+**ConVars**
+\
+_ttt_randomat_freespirits_ - Default: 1 - Whether this event is enabled.\
+_ttt_randomat_freespirits_min_players_ - Default: 0 - The minimum number of players required for this event to start.\
+_ttt_randomat_freespirits_weight_ - Default: -1 - The weight this event should use during the randomized event selection process.
+
 ## Jingle Jam 2024
 _Contributed By_: Malivil\
 Assigns a random instrument (Electric Guitar, Bass Guitar, Acoustic Guitar, Drums, or Piano) to each player.\

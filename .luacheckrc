@@ -1127,7 +1127,10 @@ globals = {
     "EQUIP_PHD",
     "ULib",
 
-    -- JJ2024 Randomat
+    -- JJ2023 Roles,
+    "ROLE_GHOSTWHISPERER",
+    "ROLE_SOULBOUND",
+    "ROLE_SOULMAGE"
 }
 std = {
     globals = {
