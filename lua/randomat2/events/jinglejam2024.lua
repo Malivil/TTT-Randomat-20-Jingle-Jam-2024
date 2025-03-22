@@ -5,6 +5,7 @@ local util = util
 local StringFind = string.find
 local StringReplace = string.Replace
 local MathCeil = math.ceil
+local MathMax = math.max
 
 local EVENT = {}
 
@@ -57,7 +58,7 @@ local function GetWeaponSound(ply, pitch)
     local instrument = ply:GetNWString("RdmtJingleJam2024Instrument", "")
     if #instrument == 0 then return end
 
-    local index = MathCeil(pitch / 15)
+    local index = MathMax(MathCeil(pitch / 15), 12)
     return EVENT.id .. "/" .. soundsFolder[instrument] ..  "/" .. sounds[instrument][index]
 end
 
@@ -91,7 +92,7 @@ function EVENT:Begin()
     local currentInstrument = 1
     local instruments = table.GetKeys(sounds)
     local maxInstruments = table.Count(instruments)
-    for _, ply in ipairs(self:GetAlivePlayers(true)) do
+    for _, ply in player.Iterator() do
         local instrument = instruments[currentInstrument]
         ply:SetNWString("RdmtJingleJam2024Instrument", instrument)
 

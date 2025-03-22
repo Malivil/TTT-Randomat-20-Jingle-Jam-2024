@@ -4,6 +4,7 @@ local string = string
 local StringFind = string.find
 local StringReplace = string.Replace
 local MathCeil = math.ceil
+local MathMax = math.max
 
 local EVENT = {}
 
@@ -52,7 +53,7 @@ local function GetWeaponSound(ply, pitch)
     local instrument = ply:GetNWString("RdmtJingleJam2024Instrument", "")
     if #instrument == 0 then return end
 
-    local index = MathCeil(pitch / 15)
+    local index = MathMax(MathCeil(pitch / 15), 12)
     return EVENT.id .. "/" .. soundsFolder[instrument] ..  "/" .. sounds[instrument][index]
 end
 
