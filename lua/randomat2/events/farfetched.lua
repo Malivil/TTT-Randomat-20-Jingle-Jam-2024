@@ -5,8 +5,8 @@ EVENT.Description = "The Magneto-stick has unlimited range and can lift much hea
 EVENT.id = "farfetched"
 EVENT.Categories = {"fun", "smallimpact"}
 
-CreateConVar("randomat_farfetched_rangemult", 2.5, FCVAR_ARCHIVE, "The multiplier to use on the magneto-stick's range", 1, 10)
-CreateConVar("randomat_farfetched_forcemult", 2.5, FCVAR_ARCHIVE, "The multiplier to use on the magneto-stick's lift force", 1, 10)
+CreateConVar("randomat_farfetched_rangemult", 2.5, FCVAR_NONE, "The multiplier to use on the magneto-stick's range", 1, 10)
+CreateConVar("randomat_farfetched_forcemult", 2.5, FCVAR_NONE, "The multiplier to use on the magneto-stick's lift force", 1, 10)
 
 local function SetupWeapon(wep, rangemult)
     if not IsValid(wep) then return end

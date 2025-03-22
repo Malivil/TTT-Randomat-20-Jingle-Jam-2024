@@ -6,9 +6,9 @@ EVENT.id = "rocketscience"
 EVENT.Type = EVENT_TYPE_WEAPON_OVERRIDE
 EVENT.Categories = {"fun", "moderateimpact", "item", "rolechange"}
 
-CreateConVar("randomat_rocketscience_damage", 50, FCVAR_ARCHIVE, "The amount of damage the rocket launcher should do to other players", 1, 150)
-CreateConVar("randomat_rocketscience_selfdamage", 25, FCVAR_ARCHIVE, "The amount of damage the rocket launcher should do to the owner", 1, 100)
-CreateConVar("randomat_rocketscience_forceboost", 100, FCVAR_ARCHIVE, "The amount of extra upwards force to apply when a player gets hit by explosion damage", 0, 1000)
+CreateConVar("randomat_rocketscience_damage", 50, FCVAR_NONE, "The amount of damage the rocket launcher should do to other players", 1, 150)
+CreateConVar("randomat_rocketscience_selfdamage", 25, FCVAR_NONE, "The amount of damage the rocket launcher should do to the owner", 1, 100)
+CreateConVar("randomat_rocketscience_forceboost", 100, FCVAR_NONE, "The amount of extra upwards force to apply when a player gets hit by explosion damage", 0, 1000)
 
 function EVENT:HandleRoleWeapons(ply)
     local updated = false

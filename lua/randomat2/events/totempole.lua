@@ -9,8 +9,8 @@ EVENT.Description = "When standing on another player's head you deal increased d
 EVENT.id = "totempole"
 EVENT.Categories = {"smallimpact"}
 
-CreateConVar("randomat_totempole_heal", "1", FCVAR_ARCHIVE, "The amount to heal the totem player per second", 1, 10)
-CreateConVar("randomat_totempole_damage_mult", "1.5", FCVAR_ARCHIVE, "The multiplier for damage the totem player does (1.5 = 150% damage)", 1, 5)
+CreateConVar("randomat_totempole_heal", "1", FCVAR_NONE, "The amount to heal the totem player per second", 1, 10)
+CreateConVar("randomat_totempole_damage_mult", "1.5", FCVAR_NONE, "The multiplier for damage the totem player does (1.5 = 150% damage)", 1, 5)
 
 function EVENT:Begin()
     local heal = GetConVar("randomat_totempole_heal"):GetInt()
