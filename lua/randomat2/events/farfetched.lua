@@ -10,6 +10,7 @@ CreateConVar("randomat_farfetched_forcemult", 2.5, FCVAR_NONE, "The multiplier t
 
 local function SetupWeapon(wep, rangemult)
     if not IsValid(wep) then return end
+    if wep.OldGetRange then return end
 
     wep.OldGetRange = wep.GetRange
     wep.GetRange = function(this, target)
