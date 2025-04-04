@@ -10,29 +10,32 @@ local StringFind = string.find
 local StringReplace = string.Replace
 
 Randomat.JingleJam2024 = {
-    -- Mapping of instrument name to sound file names in increasing order
-    -- Instruments toward the start of this list will be used more often than the ones at the end
-    Sounds = {
-        guitar = {
-            "guitarc.mp3", "guitard.mp3", "guitare.mp3", "guitarf.mp3", "guitarg.mp3", "guitara.mp3",
-            "guitarheavyelow.mp3", "guitarheavya.mp3", "guitarheavyg.m3", "guitarheavyehigh.mp3", "guitarheavypluck.mp3", "guitarheavypluck2.mp3"
-        },
-        ["bass guitar"] = {
-            "bassc.mp3", "bassd.mp3", "basse.mp3", "bassf.mp3", "bassg.mp3", "bassa.mp3",
-            "electricbassc.mp3", "electricbassd.mp3", "electricbasse.mp3", "electricbassf.mp3", "electricbassg.mp3", "electricbassb.mp3"
-        },
+    -- Mapping of untuned instrument name to sound file names
+    UntunedSounds = {
         drums = {
             "kick.mp3", "kick2.mp3", "concerttom.mp3", "floortom.mp3", "tom.mp3", "snare.mp3",
             "snare2.mp3", "hihat.mp3", "cymbalcrash.mp3", "cymbalshort.mp3", "cymbalmedium.mp3", "cymballong.mp3"
-        },
-        ["acoustic guitar"] = {
-            "acousticc.mp3", "acousticd.mp3", "acoustice.mp3", "acousticf.mp3", "acousticg.mp3", "acoustica.mp3",
-            "nylonbminor.mp3", "nylondflatminor.mp3", "nylonemajor.mp3", "nylonfsharpmaj9.mp3", "nylonfsharpminor.mp3", "nylonaflatmajor.mp3"
-        },
-        piano = {
-            "pianoa.mp3", "pianogsharp.mp3", "pianobflat.mp3", "pianob.mp3", "pianoc.mp3", "pianocsharp.mp3",
-            "pianod.mp3", "pianoeflat.mp3", "pianoe.mp3", "pianof.mp3", "pianofsharp.mp3", "pianog.mp3"
         }
+    },
+
+    -- Tuned instrument sound file names
+    TunedSounds = {
+        "C3.wav", "C#3.wav", "D3.wav", "D#3.wav", "E3.wav", "F3.wav", "F#3.wav", "G3.wav", "G#3.wav", "A3.wav", "A#3.wav", "B3.wav",
+        "C4.wav", "C#4.wav", "D4.wav", "D#4.wav", "E4.wav", "F4.wav", "F#4.wav", "G4.wav", "G#4.wav", "A4.wav", "A#4.wav", "B4.wav",
+        "C5.wav"
+    },
+
+    -- List of tuned instrument names that will use the C3 - C5 file name scheme
+    TunedInstruments = {
+        "acoustic guitar",
+        "bass guitar",
+        "electric guitar",
+        "flute",
+        "organ",
+        "piano",
+        "trumpet",
+        "violin",
+        "xylophone"
     },
 
     -- Mapping of instrument name to sound folder
@@ -54,13 +57,26 @@ Randomat.JingleJam2024 = {
         ".*weapons/.*empty.*%..*", ".*weapons/.*zoom.*%..*"
     },
 
+    GetInstruments = function()
+        local instruments = table.GetKeys(Randomat.JingleJam2024.UntunedSounds)
+        table.Add(instruments, Randomat.JingleJam2024.TunedInstruments)
+        return instruments
+    end,
+
     GetWeaponSound = function(ply, pitch)
         local instrument = ply:GetNWString("RdmtJingleJam2024Instrument", "")
         if #instrument == 0 then return end
 
-        -- Translate the pitch into a number [1-12]
-        local index = MathMax(1, MathMin(MathCeil(pitch / 15), 12))
-        return "jinglejam2024/" .. Randomat.JingleJam2024.SoundsFolder[instrument] ..  "/" .. Randomat.JingleJam2024.Sounds[instrument][index]
+        if table.HasValue(Randomat.JingleJam2024.TunedInstruments, instrument) then
+            -- Tuned instruments should have 25 notes from C3 to C5 so translate the pitch into an index from 1 to 25
+            local index = MathMax(1, MathMin(MathCeil(pitch / 7.2), 25))
+            return "jinglejam2024/" .. Randomat.JingleJam2024.SoundsFolder[instrument] ..  "/" .. Randomat.JingleJam2024.SoundsFolder[instrument] .. Randomat.JingleJam2024.TunedSounds[index]
+        else
+            -- Translate the pitch into an index no greater than the number of sounds for this instrument
+            local maxSounds = table.Count(Randomat.JingleJam2024.UntunedSounds[instrument])
+            local index = MathMax(1, MathMin(MathCeil(pitch / (180 / maxSounds)), maxSounds))
+            return "jinglejam2024/" .. Randomat.JingleJam2024.SoundsFolder[instrument] ..  "/" .. Randomat.JingleJam2024.UntunedSounds[instrument][index]
+        end
     end,
 
     ShouldIgnoreSound = function(soundName)
@@ -78,7 +94,7 @@ Randomat.JingleJam2024 = {
 
 -- Build out the mapping of instrument name to sound folder
 local function Initialize()
-    local instruments = table.GetKeys(Randomat.JingleJam2024.Sounds)
+    local instruments = Randomat.JingleJam2024.GetInstruments()
     for _, i in ipairs(instruments) do
         Randomat.JingleJam2024.SoundsFolder[i] = StringReplace(i, " ", "")
     end
@@ -86,9 +102,16 @@ local function Initialize()
     if SERVER then
         for _, i in pairs(instruments) do
             local instrumentFolder = Randomat.JingleJam2024.SoundsFolder[i]
-            for _, s in ipairs(Randomat.JingleJam2024.Sounds[i]) do
-                util.PrecacheSound(instrumentFolder .. "/" .. s)
+            if table.HasValue(Randomat.JingleJam2024.TunedInstruments, i) then
+                for _, s in ipairs(Randomat.JingleJam2024.TunedSounds) do
+                    util.PrecacheSound(instrumentFolder .. "/" .. instrumentFolder .. s)
+                end
+            else
+                for _, s in ipairs(Randomat.JingleJam2024.UntunedSounds[i]) do
+                    util.PrecacheSound(instrumentFolder .. "/" .. s)
+                end
             end
+
         end
     end
 end

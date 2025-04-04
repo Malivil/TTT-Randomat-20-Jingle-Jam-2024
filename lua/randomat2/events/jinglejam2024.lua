@@ -11,8 +11,10 @@ EVENT.Categories = {"fun", "smallimpact"}
 
 function EVENT:Begin()
     local currentInstrument = 1
-    local instruments = table.GetKeys(Randomat.JingleJam2024.Sounds)
+    local instruments = Randomat.JingleJam2024.GetInstruments()
     local maxInstruments = table.Count(instruments)
+    -- Shuffle the instrument list so we get a different group of instruments every time
+    table.Shuffle(instruments)
     for _, ply in player.Iterator() do
         local instrument = instruments[currentInstrument]
         ply:SetNWString("RdmtJingleJam2024Instrument", instrument)
