@@ -30,7 +30,7 @@ _ttt_randomat_freespirits_weight_ - Default: -1 - The weight this event should u
 
 ## Jingle Jam 2024
 _Contributed By_: Malivil\
-Assigns a random instrument (Electric Guitar, Bass Guitar, Acoustic Guitar, Drums, or Piano) to each player.\
+Assigns a random instrument (Electric Guitar, Bass Guitar, Acoustic Guitar, Drums, Piano, Flute, Organ, Violin, Xylophone or Trumpet) to each player.\
 When that player fires their weapon, a tone for their assigned instrument is played based on the pitch (up and down angle) their weapon is aimed at.
 \
 \
@@ -79,10 +79,6 @@ _randomat_totempole_heal_ - Default: 1 - The amount to heal the totem player per
 _randomat_totempole_damage_mult_ - Default: 1.5 - The multiplier for damage the totem player does (1.5 = 150% damage).
 
 # Special Thanks
-- [FreeSound.org](https://freesound.org) for the Piano sounds used in the "Jingle Jam 2024" event
-  - Sounds by [pinkyfinger](https://freesound.org/people/pinkyfinger/)
-- [GFXSounds.com](https://gfxsounds.com) for the Drum and Electric Guitar sounds used in the "Jingle Jam 2024" event
-  - Both sets of sounds by [Samuel Oddamo](https://gfxsounds.com/blog/samuel-oddamo/)
-- [SampleFocus.com](https://samplefocus.com) for the Acoustic and Base Guitar sounds used in the "Jingle Jam 2024" event
-  - "Guitar" and "Bass Guitar" by [SimonProTV250](https://samplefocus.com/users/simonprotv250)
-  - "Nylon Guitar" by [Buena Morena](https://samplefocus.com/users/buena-morena)
+- [MuseScore](https://musescore.org) for the tuned instrument sounds used in the "Jingle Jam 2024" event
+- [GFXSounds.com](https://gfxsounds.com) for the Drum sounds used in the "Jingle Jam 2024" event
+  - Sounds by [Samuel Oddamo](https://gfxsounds.com/blog/samuel-oddamo/)
