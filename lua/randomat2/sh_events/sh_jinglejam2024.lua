@@ -20,9 +20,9 @@ Randomat.JingleJam2024 = {
 
     -- Tuned instrument sound file names
     TunedSounds = {
-        "C3.wav", "C#3.wav", "D3.wav", "D#3.wav", "E3.wav", "F3.wav", "F#3.wav", "G3.wav", "G#3.wav", "A3.wav", "A#3.wav", "B3.wav",
-        "C4.wav", "C#4.wav", "D4.wav", "D#4.wav", "E4.wav", "F4.wav", "F#4.wav", "G4.wav", "G#4.wav", "A4.wav", "A#4.wav", "B4.wav",
-        "C5.wav"
+        "c3.wav", "c#3.wav", "d3.wav", "d#3.wav", "e3.wav", "f3.wav", "f#3.wav", "g3.wav", "g#3.wav", "a3.wav", "a#3.wav", "b3.wav",
+        "c4.wav", "c#4.wav", "d4.wav", "d#4.wav", "e4.wav", "f4.wav", "f#4.wav", "g4.wav", "g#4.wav", "a4.wav", "a#4.wav", "b4.wav",
+        "c5.wav"
     },
 
     -- List of tuned instrument names that will use the C3 - C5 file name scheme
