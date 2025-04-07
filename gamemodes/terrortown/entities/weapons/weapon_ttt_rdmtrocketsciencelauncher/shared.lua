@@ -1,7 +1,7 @@
 AddCSLuaFile()
 
 if CLIENT then
-    SWEP.PrintName = "Rocked Launcher"
+    SWEP.PrintName = "Rocket Launcher"
     SWEP.Slot = 9
 end
 

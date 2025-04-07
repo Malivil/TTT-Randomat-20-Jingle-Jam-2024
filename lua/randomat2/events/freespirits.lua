@@ -18,7 +18,7 @@ function EVENT:Begin()
     end
 
     -- Non-spectator dead players become ghosts immediately
-    for _, p in self:GetDeadPlayers(false, false) do
+    for _, p in ipairs(self:GetDeadPlayers(false, false)) do
         GhostPlayer(p)
     end
 
