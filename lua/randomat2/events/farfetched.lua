@@ -48,8 +48,6 @@ local function SetupWeapon(wep, rangemult, weightmult)
         this.CarryHack:SetAngles(this:GetOwner():GetAngles())
         this.EntHolding:PhysWake()
     end
-
-    CARRY_WEIGHT_LIMIT = CARRY_WEIGHT_LIMIT * weightmult
 end
 
 local function RevertWeapon(wep)
@@ -61,8 +59,6 @@ local function RevertWeapon(wep)
 
     wep.Think = wep.OldThink
     wep.OldThink = nil
-
-    CARRY_WEIGHT_LIMIT = 45
 end
 
 local forceValue = nil
@@ -89,6 +85,8 @@ function EVENT:Begin()
 
         SetupWeapon(wep, rangemult, weightmult)
     end)
+
+    CARRY_WEIGHT_LIMIT = CARRY_WEIGHT_LIMIT * weightmult
 end
 
 function EVENT:End()
@@ -101,6 +99,8 @@ function EVENT:End()
         local wep = ply:GetWeapon("weapon_zm_carry")
         RevertWeapon(wep)
     end
+
+    CARRY_WEIGHT_LIMIT = 45
 end
 
 function EVENT:Condition()
