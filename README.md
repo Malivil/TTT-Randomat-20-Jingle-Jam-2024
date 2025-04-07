@@ -5,7 +5,7 @@ A pack of [Randomat 2.0](https://github.com/Malivil/TTT-Randomat-20) events crea
 
 ## Farfetched
 _Suggested By_: Corvatile\
-The Magneto-stick has unlimited range and can lift much heavier objects than usual.
+The Magneto-stick has greatly extended range and can lift much heavier objects than usual.
 \
 \
 **ConVars**
@@ -13,8 +13,8 @@ The Magneto-stick has unlimited range and can lift much heavier objects than usu
 _ttt_randomat_farfetched_ - Default: 1 - Whether this event is enabled.\
 _ttt_randomat_farfetched_min_players_ - Default: 0 - The minimum number of players required for this event to start.\
 _ttt_randomat_farfetched_weight_ - Default: -1 - The weight this event should use during the randomized event selection process.\
-_randomat_farfetched_forcemult_ - Default: 2.5 - The multiplier to use on the magneto-stick's lift force.\
-_randomat_farfetched_rangemult_ - Default: 2.5 - The multiplier to use on the magneto-stick's range.
+_randomat_farfetched_weightmult_ - Default: 10 - The multiplier to use on the magneto-stick's maximum carry weight.\
+_randomat_farfetched_rangemult_ - Default: 25 - The multiplier to use on the magneto-stick's range.
 
 ## Free Spirits
 _Suggested By_: Nick\
