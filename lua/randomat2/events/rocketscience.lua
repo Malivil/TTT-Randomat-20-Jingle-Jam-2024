@@ -8,7 +8,7 @@ EVENT.Categories = {"fun", "moderateimpact", "item", "rolechange"}
 
 CreateConVar("randomat_rocketscience_damage", 50, FCVAR_NONE, "The amount of damage the rocket launcher should do to other players", 1, 150)
 CreateConVar("randomat_rocketscience_selfdamage", 25, FCVAR_NONE, "The amount of damage the rocket launcher should do to the owner", 1, 100)
-CreateConVar("randomat_rocketscience_forceboost", 100, FCVAR_NONE, "The amount of extra upwards force to apply when a player gets hit by explosion damage", 0, 1000)
+CreateConVar("randomat_rocketscience_forceboost", 250, FCVAR_NONE, "The amount of extra upwards force to apply when a player gets hit by explosion damage", 0, 1000)
 
 function EVENT:HandleRoleWeapons(ply)
     local updated = false
@@ -33,6 +33,8 @@ function EVENT:Begin()
     local new_traitors = {}
     for _, ply in ipairs(self:GetAlivePlayers()) do
         local _, new_traitor = self:HandleRoleWeapons(ply)
+        Randomat:RemovePhdFlopper(ply)
+
         if new_traitor then
             table.insert(new_traitors, ply)
         end
@@ -95,6 +97,14 @@ function EVENT:Begin()
             if vel.z == 0 then return end
 
             ent:SetVelocity(vel + Vector(0, 0, forceboost))
+        end
+    end)
+
+    self:AddHook("TTTCanOrderEquipment", function(ply, id, is_item)
+        if not IsValid(ply) then return end
+        if id == "hoff_perk_phd" or (is_item and is_item == EQUIP_PHD) then
+            ply:ChatPrint("PHD Floppers are disabled while '" .. Randomat:GetEventTitle(EVENT) .. "' is active!\nYour purchase has been refunded.")
+            return false
         end
     end)
 end
