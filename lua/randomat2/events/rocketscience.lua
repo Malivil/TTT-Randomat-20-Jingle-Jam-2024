@@ -7,7 +7,7 @@ EVENT.Type = EVENT_TYPE_WEAPON_OVERRIDE
 EVENT.Categories = {"fun", "moderateimpact", "item", "rolechange"}
 
 CreateConVar("randomat_rocketscience_damage", 50, FCVAR_NONE, "The amount of damage the rocket launcher should do to other players", 1, 150)
-CreateConVar("randomat_rocketscience_selfdamage", 25, FCVAR_NONE, "The amount of damage the rocket launcher should do to the owner", 1, 100)
+CreateConVar("randomat_rocketscience_selfdamage", 15, FCVAR_NONE, "The amount of damage the rocket launcher should do to the owner", 0, 100)
 CreateConVar("randomat_rocketscience_forceboost", 250, FCVAR_NONE, "The amount of extra upwards force to apply when a player gets hit by explosion damage", 0, 1000)
 
 function EVENT:HandleRoleWeapons(ply)
@@ -39,8 +39,10 @@ function EVENT:Begin()
             table.insert(new_traitors, ply)
         end
 
-        -- Strip all non-default weapons
+        -- Strip all non-default, non-role weapons
         for _, wep in ipairs(ply:GetWeapons()) do
+            if wep.Category == WEAPON_CATEGORY_ROLE then continue end
+
             local weaponclass = WEPS.GetClass(wep)
             if weaponclass == "weapon_zm_improvised" then continue end
             if weaponclass == "weapon_zm_carry" then continue end
@@ -57,7 +59,21 @@ function EVENT:Begin()
 
     -- No other weapons
     self:AddHook("PlayerCanPickupWeapon", function(ply, wep)
+        if wep.Category == WEAPON_CATEGORY_ROLE then return end
+
+        local weaponclass = WEPS.GetClass(wep)
+        if weaponclass == "weapon_zm_improvised" then return end
+        if weaponclass == "weapon_zm_carry" then return end
+        if weaponclass == "weapon_ttt_unarmed" then return end
+        if weaponclass == "weapon_ttt_rdmtrocketsciencelauncher" then return end
         return false
+    end)
+
+    -- Give any player who spawns the rocket launcher too
+    self:AddHook("PlayerSpawn", function(ply)
+        -- "PlayerSpawn" also gets called when a player is moved to AFK
+        if not IsPlayer(ply) or not ply:Alive() or ply:IsSpec() then return end
+        ply:Give("weapon_ttt_rdmtrocketsciencelauncher")
     end)
 
     local damage = GetConVar("randomat_rocketscience_damage"):GetInt()

@@ -62,7 +62,7 @@ _ttt_randomat_rocketscience_ - Default: 1 - Whether this event is enabled.\
 _ttt_randomat_rocketscience_min_players_ - Default: 0 - The minimum number of players required for this event to start.\
 _ttt_randomat_rocketscience_weight_ - Default: -1 - The weight this event should use during the randomized event selection process.\
 _randomat_rocketscience_damage_ - Default: 50 - The amount of damage the rocket launcher should do to other players.\
-_randomat_rocketscience_selfdamage_ - Default: 25 - The amount of damage the rocket launcher should do to the owner.\
+_randomat_rocketscience_selfdamage_ - Default: 15 - The amount of damage the rocket launcher should do to the owner.\
 _randomat_rocketscience_forceboost_ - Default: 250 - The amount of extra upwards force to apply when a player gets hit by explosion damage.
 
 ## Totem Pole
