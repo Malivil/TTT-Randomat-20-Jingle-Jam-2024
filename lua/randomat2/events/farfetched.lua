@@ -62,6 +62,7 @@ local function RevertWeapon(wep)
 end
 
 local forceValue = nil
+local weightLimit = nil
 function EVENT:Begin()
     local rangemult = GetConVar("randomat_farfetched_rangemult"):GetFloat()
     local weightmult = GetConVar("randomat_farfetched_weightmult"):GetFloat()
@@ -86,7 +87,10 @@ function EVENT:Begin()
         SetupWeapon(wep, rangemult, weightmult)
     end)
 
-    CARRY_WEIGHT_LIMIT = CARRY_WEIGHT_LIMIT * weightmult
+    if not weightLimit then
+        weightLimit = CARRY_WEIGHT_LIMIT
+        CARRY_WEIGHT_LIMIT = CARRY_WEIGHT_LIMIT * weightmult
+    end
 end
 
 function EVENT:End()
@@ -100,7 +104,7 @@ function EVENT:End()
         RevertWeapon(wep)
     end
 
-    CARRY_WEIGHT_LIMIT = 45
+    CARRY_WEIGHT_LIMIT = weightLimit or 45
 end
 
 function EVENT:Condition()
