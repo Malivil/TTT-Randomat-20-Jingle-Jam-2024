@@ -8,7 +8,7 @@ EVENT.Categories = {"fun", "smallimpact"}
 CreateConVar("randomat_farfetched_rangemult", 25, FCVAR_NONE, "The multiplier to use on the magneto-stick's range", 1, 50)
 CreateConVar("randomat_farfetched_weightmult", 10, FCVAR_NONE, "The multiplier to use on the magneto-stick's maximum carry weight", 1, 50)
 
-local function SetupWeapon(wep, rangemult, weightmult)
+local function SetupWeapon(wep, rangemult)
     if not IsValid(wep) then return end
     if wep.OldGetRange or wep.OldThink then return end
 
@@ -75,7 +75,7 @@ function EVENT:Begin()
 
     for _, ply in player.Iterator() do
         local wep = ply:GetWeapon("weapon_zm_carry")
-        SetupWeapon(wep, rangemult, weightmult)
+        SetupWeapon(wep, rangemult)
     end
 
     self:AddHook("WeaponEquip", function(wep, owner)
@@ -84,7 +84,7 @@ function EVENT:Begin()
         local class = WEPS.GetClass(wep)
         if class ~= "weapon_zm_carry" then return end
 
-        SetupWeapon(wep, rangemult, weightmult)
+        SetupWeapon(wep, rangemult)
     end)
 
     if not weightLimit then
