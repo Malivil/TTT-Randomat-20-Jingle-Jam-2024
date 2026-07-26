@@ -11,6 +11,7 @@ local function GhostPlayer(ply)
     ply:SetProperty("TTTIsGhosting", true, ply)
 end
 
+local roleFaked = false
 function EVENT:Begin()
     -- If only ghost whisperers can normally read ghost chat, start "deadchat" so everyone can read it instead (if it exists)
     if cvars.Bool("ttt_ghostwhisperer_limited_chat", false) and Randomat.Events["deadchat"] then
@@ -26,9 +27,19 @@ function EVENT:Begin()
         if not IsPlayer(ply) then return end
         GhostPlayer(ply)
     end)
+
+    -- Make sure the Ghost Whisperer is registered so the functionality works
+    roleFaked = true
+    RegisterRoleHooks(ROLE_GHOSTWHISPERER)
 end
 
 function EVENT:End()
+    -- Only unregister the role hooks if this event was actually started
+    -- We don't want to unregister hooks for a player who is actually this role
+    if roleFaked then
+        UnregisterRoleHooks(ROLE_GHOSTWHISPERER)
+        roleFaked = false
+    end
     Randomat:EndActiveEvent("deadchat", true)
     for _, p in player.Iterator() do
         p:ClearProperty("TTTIsGhosting")
@@ -37,6 +48,7 @@ end
 
 function EVENT:Condition()
     if cvars.Number("ttt_ghostwhisperer_max_abilities", -1) <= 0 then return false end
+    if type(RegisterRoleHooks) ~= "function" then return false end
 
     for _, p in player.Iterator() do
         if p:GetRole() == ROLE_GHOSTWHISPERER then return false end
