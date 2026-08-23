@@ -1093,7 +1093,6 @@ globals = {
     "ShouldPromoteDetectiveLike",
     "ShouldShowTraitorExtraInfo",
     "StartsWithVowel",
-    "UnregisterRoleHooks",
     "UpdateRoleColors",
     "UpdateRoleColours",
     "UpdateRoleState",
