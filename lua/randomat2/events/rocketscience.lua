@@ -26,14 +26,11 @@ function EVENT:HandleRoleWeapons(ply)
 end
 
 function EVENT:Begin()
-    local new_traitors = {}
-    for _, ply in ipairs(self:GetAlivePlayers()) do
-        local _, new_traitor = self:HandleRoleWeapons(ply)
-        Randomat:RemovePhdFlopper(ply)
+    local _, _, new_traitors = Randomat:BalanceTeams()
+    self:NotifyTeamChange(new_traitors, ROLE_TEAM_TRAITOR)
 
-        if new_traitor then
-            table.insert(new_traitors, ply)
-        end
+    for _, ply in ipairs(self:GetAlivePlayers()) do
+        Randomat:RemovePhdFlopper(ply)
 
         -- Strip all non-default, non-role weapons
         for _, wep in ipairs(ply:GetWeapons()) do
@@ -49,7 +46,6 @@ function EVENT:Begin()
 
         ply:Give("weapon_ttt_rdmtrocketsciencelauncher")
     end
-    SendFullStateUpdate()
 
     self:NotifyTeamChange(new_traitors, ROLE_TEAM_TRAITOR)
 
